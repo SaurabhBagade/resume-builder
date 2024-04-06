@@ -22,45 +22,45 @@ $resumes = $resumes->fetch_all(1);
         <?php
         if ($resumes) {
             ?>
-            <div class="d-flex flex-wrap">
-                <?php
+        <div class="d-flex flex-wrap">
+            <?php
                 foreach ($resumes as $res) {
                     ?>
 
-                    <div class="col-12 col-md-6 p-2">
-                        <div class="p-2 border rounded">
-                            <h5>
-                                <?= @$res["resume_title"] ?>
-                            </h5>
-                            <p class="small text-secondary m-0" style="font-size:12px"><i class="bi bi-clock-history"></i>
-                                Last Updated
-                                <?= date('d F, Y h:i A', $res['updated_at']) ?>
-                            </p>
-                            <div class="d-flex gap-2 mt-1">
-                                <a href="" class="text-decoration-none small"><i class="bi bi-file-text"></i> Open</a>
-                                <a href="updateresume.php?resume=<?= @$res["slug"] ?>" class="text-decoration-none small"><i
-                                        class="bi bi-pencil-square"></i> Edit</a>
-                                <a href="actions/delete-resume.action.php?id=<?= @$res["id"] ?>"
-                                    class="text-decoration-none small"><i class="bi bi-trash2"></i> Delete</a>
-                                <a href="" class="text-decoration-none small"><i class="bi bi-share"></i> Share</a>
-                                <a href="" class="text-decoration-none small"><i class="bi bi-copy"></i> Clone</a>
+            <div class="col-12 col-md-6 p-2">
+                <div class="p-2 border rounded">
+                    <h5>
+                        <?= @$res["resume_title"] ?>
+                    </h5>
+                    <p class="small text-secondary m-0" style="font-size:12px"><i class="bi bi-clock-history"></i>
+                        Last Updated
+                        <?= date('d F, Y h:i A', $res['updated_at']) ?>
+                    </p>
+                    <div class="d-flex gap-2 mt-1">
+                        <a href="resume.php?resume=<?= @$res["slug"] ?>" class="text-decoration-none small"
+                            target="_blank"><i class="bi bi-file-text"></i> Open</a>
+                        <a href="updateresume.php?resume=<?= @$res["slug"] ?>" class="text-decoration-none small"><i
+                                class="bi bi-pencil-square"></i> Edit</a>
+                        <a href="actions/delete-resume.action.php?id=<?= @$res["id"] ?>"
+                            class="text-decoration-none small"><i class="bi bi-trash2"></i> Delete</a>
+                        <a href="" class="text-decoration-none small"><i class="bi bi-share"></i> Share</a>
 
-                            </div>
-                        </div>
                     </div>
-                    <?php
-                }
-                ?>
+                </div>
             </div>
             <?php
+                }
+                ?>
+        </div>
+        <?php
         } else {
             ?>
 
-            <div class="text-center py-3 border rounded mt-3" style="background-color: rgba(236, 236, 236, 0.56);">
-                <i class="bi bi-file-text"></i> No Resumes Available
-            </div>
+        <div class="text-center py-3 border rounded mt-3" style="background-color: rgba(236, 236, 236, 0.56);">
+            <i class="bi bi-file-text"></i> No Resumes Available
+        </div>
 
-            <?php
+        <?php
         }
         ?>
 

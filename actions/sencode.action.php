@@ -26,15 +26,15 @@ if ($_POST) {
             try {
                 //Enable verbose debug output
                 $mail->isSMTP();
-                $mail->Host = 'YOUR SMTP Server';
+                $mail->Host = 'smtp.example.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'YOUR Mail ID';
-                $mail->Password = 'MAIL Password';
+                $mail->Username = 'mail id';
+                $mail->Password = 'password';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Port = 465;
 
                 //Recipients
-                $mail->setFrom('MAIL Password', 'Resume Builder');
+                $mail->setFrom('mail id', 'Resume Builder');
                 $mail->addAddress($email);
                 $mail->isHTML(true);
                 $mail->Subject = 'Forgot Password ?';
