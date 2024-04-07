@@ -48,6 +48,9 @@ if ($_POST) {
                 $fn->setError($mail->ErrorInfo);
                 $fn->redirect("../forgot-password.php");
             }
+        } else {
+            $fn->setError($post["email"] . " is not registered !");
+            $fn->redirect("../forgot-password.php");
         }
     } else {
         $fn->redirect("../forgot-password.php");
